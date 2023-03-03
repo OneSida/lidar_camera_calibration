@@ -14,12 +14,12 @@
 #include <boost/foreach.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 
-#include <linux/version.h>
-#if LINUX_VERSION_CODE < KERNEL_VERSION(5,4,0)
-#include <velodyne_pointcloud/point_types.h>
-#else
+// #include <linux/version.h>
+// #if LINUX_VERSION_CODE < KERNEL_VERSION(5,4,0)
+// #include <velodyne_pointcloud/point_types.h>
+// #else
 #include <velodyne_pcl/point_types.h>
-#endif
+// #endif
 
 #include <pcl/common/eigen.h>
 #include <pcl/common/transforms.h>
