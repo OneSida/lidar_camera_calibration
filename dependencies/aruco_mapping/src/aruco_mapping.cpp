@@ -93,7 +93,7 @@ ArucoMapping::ArucoMapping(ros::NodeHandle *nh) :
   parseCalibrationFile(calib_filename_);
 
   //Initialize OpenCV window
-  cv::namedWindow("Mono8", cv::WINDOW_AUTOSIZE);       
+  // cv::namedWindow("Mono8", cv::WINDOW_AUTOSIZE);       
       
   //Resize marker container
   markers_.resize(num_of_markers_);
@@ -183,8 +183,9 @@ ArucoMapping::imageCallback(const sensor_msgs::ImageConstPtr &original_image)
   processImage(I,I);
   
   // Show image
-  cv::imshow("Mono8", I);
-  cv::waitKey(10);
+  // cv::imshow("Mono8", I);
+  // cv::waitKey(10);
+  cv::imwrite("Mono8.jpg", I);
   /*cv::waitKey(2000);
   ros::shutdown();*/
 }
