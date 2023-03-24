@@ -196,8 +196,8 @@ pcl::PointCloud <myPointXYZRID> normalizeIntensity(pcl::PointCloud <myPointXYZRI
 
 pcl::PointCloud <myPointXYZRID>
 intensityByRangeDiff(pcl::PointCloud <myPointXYZRID> point_cloud, config_settings config) {
-
-    std::vector <std::vector<myPointXYZRID *>> rings(16);
+    // FIXME: read from config
+    std::vector <std::vector<myPointXYZRID *>> rings(80);
 
     for (pcl::PointCloud<myPointXYZRID>::iterator pt = point_cloud.points.begin();
          pt < point_cloud.points.end(); pt++) {

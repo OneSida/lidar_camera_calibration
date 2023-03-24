@@ -76,7 +76,7 @@ def project():
     # o3d.visualization.draw_geometries([pcd])
     points = np.array(pcd.points)
     points = points[points[:, 0] > 0.]
-    points = points[points[:, 0]**2 + points[:, 1]**2 + points[:, 2]**2 < 2.5**2]
+    points = points[points[:, 0]**2 + points[:, 1]**2 + points[:, 2]**2 < 3**2]
     # pprint(points)
     # homo_lidar_points = np.concatenate((np.array(points).T, \
     #                                 np.ones((1, len(points)))))
@@ -106,8 +106,33 @@ def project():
     # pprint(y_list)
     jpg = cv2.imread(jpg_file)
     plt.imshow(jpg)
-    plt.scatter(x_list, y_list, marker='.', color='red', alpha=0.1)
-    plt.show()
+    plt.scatter(x_list, y_list, s=1, marker='.', color='red', alpha=0.8)
+    
+
+    # points = []
+    # with open('./conf/points.txt') as fin:
+    #     point_num = int(fin.readline().strip())
+    #     for _ in range(point_num):
+    #         point = [float(x) for x in fin.readline().strip().split(' ')]
+    #         points.append(point)
+    # points = np.array(points)
+    # print(points)
+    # points_2d, _ = cv2.projectPoints(points, rvec, tvec, camera_matrix, dist_coeffs)
+    # print(points_2d)
+    # x_list = []
+    # y_list = []
+    # for point in points_2d:
+    #     x = point[0][0]
+    #     y = point[0][1]
+    #     if 0 < x < image_w and 0 < y < image_h:
+    #         x_list.append(x)
+    #         y_list.append(y)
+    # x_list = np.array(x_list)
+    # y_list = np.array(y_list)
+    # plt.scatter(x_list, y_list, s=3, marker='.', color='green', alpha=1)
+
+    # plt.show()
+    plt.savefig('vis_pcd_jpg.png')
 
 
 if __name__ == '__main__':
